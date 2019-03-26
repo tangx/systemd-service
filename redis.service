@@ -1,0 +1,15 @@
+[Unit]
+Description=Redis Server
+After=network.target
+After=network-online.target
+Wants=network-online.target
+Documentation=https://redis.io
+
+[Service]
+Type=simple
+
+ExecStart=/usr/local/bin/redis-server /etc/redis/redis.conf
+
+
+[Install]
+WantedBy=multi-user.target

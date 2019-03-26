@@ -1,0 +1,18 @@
+[Unit]
+Description=Minio Server
+After=network.target
+After=network-online.target
+Wants=network-online.target
+Documentation=https://minio.io
+
+[Service]
+Type=simple
+
+Environment=MINIO_ACCESS_KEY=RSU0CYXX8W04NIMPA7SX
+Environment=MINIO_SECRET_KEY=VD85uhB7LsoEJxUSnmKVO3w2BLWzcm6YOtLJ5BA5
+
+ExecStart=/usr/local/bin/minio server /data/minio_data
+
+
+[Install]
+WantedBy=multi-user.target

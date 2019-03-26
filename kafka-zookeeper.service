@@ -1,0 +1,15 @@
+# /etc/systemd/system/kafka-zookeeper.service
+[Unit]
+Description=Apache Zookeeper server (Kafka)
+Documentation=http://zookeeper.apache.org
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
+
+[Service]
+Type=simple
+Environment=JAVA_HOME=/usr/local/jdk1.8.0_201
+ExecStart=/data/kafka_2.11-2.1.0/bin/zookeeper-server-start.sh /data/kafka_2.11-2.1.0/config/zookeeper.properties
+ExecStop=/data/kafka_2.11-2.1.0/bin/zookeeper-server-stop.sh
+
+[Install]
+WantedBy=multi-user.target
