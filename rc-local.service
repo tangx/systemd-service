@@ -1,0 +1,15 @@
+[Unit]
+ Description=/etc/rc.local Compatibility
+ ConditionPathExists=/etc/rc.local
+
+[Service]
+ Type=forking
+ ExecStart=/etc/rc.local start
+ TimeoutSec=0
+ StandardOutput=tty
+ RemainAfterExit=yes
+ SysVStartPriority=99
+
+[Install]
+ # https://www.linuxbabe.com/linux-server/how-to-enable-etcrc-local-with-systemd
+ WantedBy=multi-user.target
