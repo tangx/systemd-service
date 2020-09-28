@@ -8,6 +8,9 @@ Documentation=https://minio.io
 [Service]
 Type=simple
 
+LimitNOFILE=65536
+
+Environment=MINIO_BROWSER=off
 Environment=MINIO_ACCESS_KEY=RSU0CYXX8W04NIMPA7SX
 Environment=MINIO_SECRET_KEY=VD85uhB7LsoEJxUSnmKVO3w2BLWzcm6YOtLJ5BA5
 
